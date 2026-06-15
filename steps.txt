@@ -1,0 +1,3 @@
+Build & run
+docker build -t my-backend:latest .
+docker-compose up -d --build
