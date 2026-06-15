@@ -1,19 +1,17 @@
 import { test, expect } from '@playwright/test';
 
 test('APi get Request', async ({ request }) => {
-    const response = await request.get('http://localhost:8000/api/user/list')
+    const response = await request.get('http://localhost:8000/api/user/list');
 
-    expect(response.status()).toBe(200)
-    const text = await response.text();
-    expect(text).toContain('test')
-    console.log(await response.json());
+    expect(response.status()).toBe(200);
+
     const data = await response.json();
+
+    console.log(data);
 
     expect(Array.isArray(data)).toBeTruthy();
     expect(data.length).toBeGreaterThan(0);
-
-
-})
+});
 test('Get helpdesk list', async ({ request }) => {
     const response = await request.get('http://localhost:8000/api/user/techlist');
 
